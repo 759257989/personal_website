@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from "next/image";
-import Button from './Button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

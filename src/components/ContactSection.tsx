@@ -33,7 +33,7 @@ const ContactSection = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -114,8 +114,8 @@ const ContactSection = () => {
             variants={itemVariants}
             className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           >
-            I'm always interested in new opportunities and exciting projects. 
-            Let's discuss how we can work together!
+            I&apos;m always interested in new opportunities and exciting projects. 
+            Let&apos;s discuss how we can work together!
           </motion.p>
         </motion.div>
 
@@ -205,7 +205,7 @@ const ContactSection = () => {
                     className="p-4 bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 rounded-lg"
                   >
                     <p className="text-green-800 dark:text-green-200">
-                      Thank you! Your message has been sent successfully. I'll get back to you soon.
+                      Thank you! Your message has been sent successfully. I&apos;ll get back to you soon.
                     </p>
                   </motion.div>
                 )}
@@ -250,7 +250,7 @@ const ContactSection = () => {
               </h3>
               
               <div className="space-y-6">
-                {contactInfo.map((info, index) => (
+                {contactInfo.map((info) => (
                   <motion.a
                     key={info.title}
                     href={info.href}

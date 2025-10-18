@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Card from './Card';
+import Image from 'next/image';
 
 interface GameImage {
   id: string;
@@ -17,7 +18,7 @@ const GamingGallerySection = () => {
       id: '1',
       title: 'The Witcher 3',
       game: ' ',
-      description: 'One of the most intense boss battles I\'ve experienced',
+      description: 'One of the most intense boss battles I&apos;ve experienced',
       image: '/img1.JPG',
     },
     {
@@ -92,8 +93,8 @@ const GamingGallerySection = () => {
             variants={itemVariants}
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            When I'm not coding, you'll find me exploring virtual worlds. 
-            Here are some of my favorite moments from the games I've played.
+            When I&apos;m not coding, you&apos;ll find me exploring virtual worlds. 
+            Here are some of my favorite moments from the games I&apos;ve played.
           </motion.p>
         </motion.div>
 
@@ -113,9 +114,11 @@ const GamingGallerySection = () => {
               <Card className="overflow-hidden h-full flex flex-col">
                 <div className="relative h-48 overflow-hidden">
                   {gameImage.image ? (
-                    <img
+                    <Image
                       src={gameImage.image}
                       alt={gameImage.title}
+                      width={400}
+                      height={192}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
@@ -151,8 +154,8 @@ const GamingGallerySection = () => {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground italic">
-            "Gaming taught me problem-solving, strategic thinking, and the importance of persistence - 
-            skills that translate perfectly into software development."
+            &quot;Gaming taught me problem-solving, strategic thinking, and the importance of persistence - 
+            skills that translate perfectly into software development.&quot;
           </p>
         </motion.div>
       </div>

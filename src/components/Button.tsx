@@ -11,6 +11,7 @@ interface ButtonProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button = ({
@@ -21,6 +22,7 @@ const Button = ({
   size = 'md',
   className = '',
   disabled = false,
+  type = 'button',
 }: ButtonProps) => {
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background';
   
@@ -59,7 +61,7 @@ const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={classes} disabled={disabled}>
+    <button onClick={onClick} className={classes} disabled={disabled} type={type}>
       {buttonContent}
     </button>
   );

@@ -2,8 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import Button from './Button';
-import { Download, Github, Linkedin, Mail, Check } from 'lucide-react';
+import { Github, Linkedin, Mail, Check } from 'lucide-react';
 import { useState } from 'react';
 
 const HomeSection = () => {
@@ -55,7 +54,7 @@ const HomeSection = () => {
                                 variants={itemVariants}
                                 className="text-5xl lg:text-6xl font-bold text-foreground whitespace-nowrap"
                             >
-                                Hi, I'm{' '}
+                                Hi, I&apos;m{' '}
                                     <span className="text-accent">Yu (Ray) Wang</span>
                             </motion.h1>
                             <motion.p
@@ -166,10 +165,13 @@ const HomeSection = () => {
                                     {/* Replace with your actual profile image */}
                                     <div className="w-full h-full bg-gradient-to-br from-muted/20 to-muted/40 flex items-center justify-center">
                                         <span className="text-4xl font-bold text-muted-foreground">
-                                            <img
-                                                src="/myphoto.JPG"
-                                                alt="Yu Wang"
-                                            />
+                                        <Image
+                                            src="/myphoto.JPG"
+                                            alt="Yu Wang"
+                                            width={320}
+                                            height={320}
+                                            className="w-full h-full object-cover"
+                                        />
                                         </span>
                                     </div>
                                 </div>

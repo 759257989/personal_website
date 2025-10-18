@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Card from './Card';
 import Button from './Button';
-import { Github } from 'lucide-react';
+import Image from 'next/image';
 
 interface Project {
   id: string;
@@ -122,7 +122,7 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -132,9 +132,11 @@ const ProjectsSection = () => {
                 {/* Project Image */}
                 <div className="h-48 overflow-hidden rounded-t-xl">
                   {project.image ? (
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={400}
+                      height={192}
                       className="w-full h-full object-cover"
                     />
                   ) : (
