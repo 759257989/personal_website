@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { Calendar, Clock, ArrowRight, Code, Lightbulb, Rocket, ArrowLeft } from 'lucide-react';
+import { ComponentType } from 'react';
 import Link from 'next/link';
 
 interface BlogPost {
@@ -61,8 +62,8 @@ const BlogIndexPage = () => {
     },
   ];
 
-  const getCategoryIcon = (category: string) => {
-    const iconMap: { [key: string]: any } = {
+  const getCategoryIcon = (category: string): ComponentType<{ size?: number; className?: string }> => {
+    const iconMap: { [key: string]: ComponentType<{ size?: number; className?: string }> } = {
       'Development': Code,
       'AI/ML': Lightbulb,
       'Personal': Rocket,
@@ -140,7 +141,7 @@ const BlogIndexPage = () => {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {blogPosts.map((post, index) => {
+          {blogPosts.map((post) => {
             const IconComponent = getCategoryIcon(post.category);
             return (
               <motion.div

@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import Card from './Card';
 import Button from './Button';
-import { Calendar, Clock, ArrowRight, Code, Lightbulb, Rocket } from 'lucide-react';
+import { Calendar, Clock, Code, Lightbulb, Rocket } from 'lucide-react';
+import { ComponentType } from 'react';
 
 interface BlogPost {
   id: string;
@@ -50,11 +51,11 @@ const BlogSection = () => {
     }
   ];
 
-  const getCategoryIcon = (category: string) => {
-    const iconMap: { [key: string]: any } = {
-      'Development': Code,
-      'AI/ML': Lightbulb,
-      'Personal': Rocket,
+  const getCategoryIcon = (category: string): ComponentType<{ size?: number; className?: string }> => {
+    const iconMap: { [key: string]: ComponentType<{ size?: number; className?: string }> } = {
+      'System Design': Code,
+      'LeetCode': Lightbulb,
+      'Backend': Rocket,
     };
     return iconMap[category] || Code;
   };
@@ -114,7 +115,7 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {blogPosts.map((post, index) => {
+          {blogPosts.map((post) => {
             const IconComponent = getCategoryIcon(post.category);
             return (
               <motion.div
